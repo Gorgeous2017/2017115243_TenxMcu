@@ -1,6 +1,6 @@
 # File Comment
 ## init.h
-**File**: init.h
+**File**: init.h  
 **Brief**: System initialize head file
 
 **Details**:  
@@ -8,7 +8,7 @@
 - Define the necessary variable and data structure
 
 ## init.c
-File: init.c
+**File**: init.c  
 **Brief**: System initialize source file
 
 **Details**:
@@ -17,7 +17,7 @@ File: init.c
 - No  variables need to initalize in this project
 
 ## display.h
-File: display.h
+**File**: display.h  
 **Brief**: Led control head file
 
 ## **Details**:
@@ -25,11 +25,11 @@ File: display.h
 - Define the action macro use to control led turn on or turn off
 
 ## includeAll.h
-File: includeAll.h
+**File**: includeAll.h  
 **Brief**: Include the project head file
 
 ## main.c
-File: main.c
+**File**: main.c  
 **Brief**: The project main source file
 
 ## **Details**: 
@@ -37,7 +37,7 @@ File: main.c
 - Achieve delay function 
 
 ## mian.h
-File: main.h
+**File**: main.h  
 **Brief**: project main head file
 
 # Attention
