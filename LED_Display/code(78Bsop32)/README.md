@@ -20,7 +20,7 @@
 **File**: display.h  
 **Brief**: Led control head file
 
-## **Details**:
+**Details**:
 - Define the led pin macro and const data macro
 - Define the action macro use to control led turn on or turn off
 
@@ -32,7 +32,7 @@
 **File**: main.c  
 **Brief**: The project main source file
 
-## **Details**: 
+**Details**: 
 - Achieve flicker of led use gpio periheral
 - Achieve delay function 
 
