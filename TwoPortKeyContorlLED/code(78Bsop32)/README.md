@@ -1,3 +1,11 @@
+# TwoPortKeyContorlLED
+A port use to get the key press input, another port use to LED output
+
+# Wiring diagram
+Pin 11 use to display the LED  
+Pin 10 use to scan the key status 
+![Wiring diagram](../photo/wiring-diagram-2.jpg)
+
 # File Comment
 ## init.h
 **File**: init.h  
