@@ -149,7 +149,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>0</TargetSelection>
+          <TargetSelection>-1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -163,7 +163,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>C:\Keil_v5\SampTarg.DLL</Driver>
+            <Driver>C:\Keil\SampTarg.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -172,7 +172,7 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>1</Capability>
+            <Capability>0</Capability>
             <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
@@ -410,6 +410,16 @@
               <FileName>init.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\init.h</FilePath>
+            </File>
+            <File>
+              <FileName>isr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\isr.c</FilePath>
+            </File>
+            <File>
+              <FileName>isr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\isr.h</FilePath>
             </File>
             <File>
               <FileName>keys.c</FileName>
