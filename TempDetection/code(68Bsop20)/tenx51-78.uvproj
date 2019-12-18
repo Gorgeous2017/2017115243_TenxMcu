@@ -426,6 +426,16 @@
               <FileType>5</FileType>
               <FilePath>.\typeAlias.h</FilePath>
             </File>
+            <File>
+              <FileName>smg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\smg.c</FilePath>
+            </File>
+            <File>
+              <FileName>smg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\smg.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
