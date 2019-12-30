@@ -2,9 +2,12 @@
 
 #include "typeAlias.h"
 
+#include "buzz.h"
+#include "dig_display.h"
 #include "display.h"
-#include "smg.h"
-#include "keys.h"
 #include "init.h"
+#include "isr.h"
+#include "keys.h"
 #include "main.h"
+
 #include <INTRINS.H>

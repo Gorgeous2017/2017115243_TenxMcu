@@ -1,7 +1,7 @@
 #ifndef __keys_h
 #define __keys_h
-// Hal: exp: #define P_led P10 -----------------
-#define P_key1 P3_4
+
+#define P_key3 P1_7
 // Const: exp: #define D_data 1 ----------------
 #define D_keyNull 0
 #define D_keyValue1 1
@@ -13,8 +13,8 @@ uint8_t keyValue;
 extern uint8_t keyValue;
 #endif
 
-// Action Macro: exp: #define F_getData() ------
+ // Action Macro: exp: #define F_getData() ------
 
-// Function ------------------------------------
+ // Function ------------------------------------
 void GetKeys();
-#endif
+#endif 
