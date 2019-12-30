@@ -2,7 +2,7 @@
 #define __display_h
 // Hal: exp: #define P_led_1 P1.1 -----------------
 #define P_led_1 P1_4
-#define P_led_2 P3_6
+#define P_led_2 P1_2
 #define P_led_com P1_0
 
 // Const: exp: #define D_data 1 ----------------

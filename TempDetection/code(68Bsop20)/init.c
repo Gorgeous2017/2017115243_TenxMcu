@@ -27,19 +27,18 @@ void SysInit()
 	// IO 模式初始化
 	P1MODL = 0xaa;
 	P1MODH = P14MOD_2 | P15MOD_2;
-	P_led_com = 0; /* 根据电路图，con 口应恒为低 */
-	P_led_1 = 0;
-	P_led_2 = 0;
-	P_buzz = 0;
+
+	/* LED 端口初始化 */
+	P1MODH |= P14MOD_2;
+	P1MODL |= P12MOD_2;
+
+	/* 按键端口初始化 */
+	P3MODH = P34MOD_0 | P36MOD_2;
 
 	// IO 状态初始化
 
 	/* 数码管端口初始化 */
 	//  SMGInit();
-
-	/* LED 端口初始化 */
-	P1MODH |= P14MOD_2;
-	P3MODH |= P36MOD_2;
 
 	// T2 初始化  7.3728Mhz/2 = 3686400Hz
 
@@ -59,6 +58,11 @@ void SysInit()
 	ET2 = 1;
 	//EA: :总中断使能控制        1:每个中断通过其各个中断控制位使能或禁止
 	EA = 1;
+
+	P_led_com = 0; /* 根据电路图，con 口应恒为低 */
+	P_led_1 = 0;
+	P_led_2 = 0;
+	P_buzz = 0;
 }
 //=============================================================================
 void VarsInit() {}

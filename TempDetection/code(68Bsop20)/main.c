@@ -50,9 +50,15 @@ void TaskProcess() {}
 //=============================================================================
 void TaskSetting()
 {
-	if (D_keyValue1 == keyValue_3)
+	if (D_keyValue1 == keyValue_1)
 	{
 		F_ledNeg(1);
+	}
+	keyValue_1 = D_keyNull;
+
+	if (D_keyValue1 == keyValue_3)
+	{
+		F_ledNeg(2);
 	}
 	keyValue_3 = D_keyNull;
 }
