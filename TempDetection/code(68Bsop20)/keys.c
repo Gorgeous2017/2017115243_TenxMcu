@@ -12,7 +12,7 @@ void GetKeys()
 	}
 	else
 	{ //按键没有被按下，为高电平
-		keyValue = tmpKeyValue;
+		keyValue_3 = tmpKeyValue;
 		tmpKeyValue = D_keyNull;
 	}
 }
