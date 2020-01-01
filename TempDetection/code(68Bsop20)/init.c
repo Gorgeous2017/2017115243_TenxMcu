@@ -24,16 +24,18 @@ void SysInit()
 	_nop_();
 	_nop_();
 	_nop_();
-	// IO 模式初始化
-	P1MODL = 0xaa;
-	P1MODH = P14MOD_2 | P15MOD_2;
+	// // IO 模式初始化
+	// P1MODL = 0xaa;
+	// P1MODH = P14MOD_2 | P15MOD_2;
 
-	/* LED 端口初始化 */
-	P1MODH |= P14MOD_2;
-	P1MODL |= P12MOD_2;
+	// /* LED 端口初始化 */
+	// P1MODH |= P14MOD_2;
+	// P1MODL |= P12MOD_2;
 
-	/* 按键端口初始化 */
-	P3MODH = P34MOD_0 | P36MOD_2;
+	// /* 按键端口初始化 */
+	//P3MODH = P34MOD_0 | P36MOD_2;
+	LEDInit();
+	KeyInit();
 
 	// IO 状态初始化
 
@@ -60,12 +62,40 @@ void SysInit()
 	EA = 1;
 
 	P_led_com = 0; /* 根据电路图，con 口应恒为低 */
-	P_led_1 = 0;
-	P_led_2 = 0;
+	//P_led_1 = 0;
+	//P_led_2 = 0;
 	P_buzz = 0;
 }
 //=============================================================================
 void VarsInit() {}
+
+void LEDInit()
+{
+	P1MODL &= P12MOD_Mask;
+	P1MODL |= P12MOD_2;
+
+	P1MODH &= P14MOD_Mask;
+	P1MODH |= P14MOD_2;
+}
+
+void KeyInit()
+{
+	/* key 1 */
+	P3MODH &= P34MOD_Mask;
+	P3MODH |= P34MOD_0;
+
+	/* key 2 */
+	P3MODL &= P32MOD_Mask;
+	P3MODL |= P32MOD_0;
+
+	/* key 3 */
+	P1MODH &= P17MOD_Mask;
+	P1MODH |= P17MOD_0;
+
+	/* key 4 */
+	P1MODL &= P12MOD_Mask;
+	P1MODL |= P12MOD_0;
+}
 
 void SMGInit(void)
 {
