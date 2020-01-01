@@ -432,9 +432,14 @@
               <FilePath>.\keys.h</FilePath>
             </File>
             <File>
-              <FileName>dig_display.c</FileName>
+              <FileName>smg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\dig_display.c</FilePath>
+              <FilePath>.\smg.c</FilePath>
+            </File>
+            <File>
+              <FileName>smg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\smg.h</FilePath>
             </File>
           </Files>
         </Group>

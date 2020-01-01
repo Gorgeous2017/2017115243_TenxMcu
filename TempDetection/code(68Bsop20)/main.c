@@ -17,10 +17,11 @@ void main()
 		//喂狗
 		F_clearWDT();
 		//业务代码
-		TimeProcess();
-		TaskSetting();
-		TaskProcess();
-		DisplayProcess();
+		// TimeProcess();
+		// TaskSetting();
+		// TaskProcess();
+		// DisplayProcess();
+		SMG_Display(55);
 	}
 }
 void TimeProcess()
