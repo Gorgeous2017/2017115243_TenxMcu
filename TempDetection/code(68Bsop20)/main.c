@@ -11,6 +11,7 @@ void main()
 	F_turnOnWDT();
 	//F_ledOn(1);
 	//F_ledOn(2);
+
 	while (1)
 	{
 		//喂狗
@@ -59,6 +60,7 @@ void TaskSetting()
 	{
 		//F_ledNeg(1);
 		led_flag2 = ~led_flag2;
+		BuzzCount(100);
 	}
 
 	if (D_keyValue1 == keyValue[2])

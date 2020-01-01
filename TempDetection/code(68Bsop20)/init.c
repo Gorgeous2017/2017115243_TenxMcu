@@ -25,32 +25,27 @@ void SysInit()
 	_nop_();
 	_nop_();
 	// // IO 模式初始化
-	// P1MODL = 0xaa;
-	// P1MODH = P14MOD_2 | P15MOD_2;
-
-	// /* LED 端口初始化 */
-	// P1MODH |= P14MOD_2;
-	// P1MODL |= P12MOD_2;
-
-	// /* 按键端口初始化 */
-	//P3MODH = P34MOD_0 | P36MOD_2;
+	/* LED 端口模式初始化 */
 	LEDInit();
-	KeyInit();
 
-	// IO 状态初始化
+	/* 按键端口初始化 */
+	KeyInit();
 
 	/* 数码管端口初始化 */
 	//  SMGInit();
 
-	// T2 初始化  7.3728Mhz/2 = 3686400Hz
+	/* 蜂鸣器端口初始化 */
+	P1MODH &= P15MOD_Mask;
+	P1MODH |= P15MOD_2;
 
-	// 3686400Hz/3686.4 = 1000Hz = 1ms timer2 interrupt
-	//定时3.686ms,高八位
-	TH2 = (65536 - 3686) / 256;
+	// T2 初始化  7.3728Mhz/2 = 3686400Hz
+	// 3686400Hz/922 = 4000Hz = 0.25ms timer2 interrupt
+	//定时0.25ms,高八位
+	TH2 = (65536 - 922) / 256;
 	//RCP2H：Timer2 重载/捕获数据的高字节
 	RCP2H = TH2;
-	//定时3.686ms,低八位
-	TL2 = (65536 - 3686) % 256;
+	//定时0.25ms,低八位
+	TL2 = (65536 - 922) % 256;
 	//RCP2L：Timer2 重载/捕获数据的低字节
 	RCP2L = TL2;
 
