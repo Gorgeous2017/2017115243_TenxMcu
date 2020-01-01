@@ -24,12 +24,7 @@ void SysInit()
 	_nop_();
 	_nop_();
 	_nop_();
-<<<<<<< HEAD
-	// IO 模式初始化
-
-=======
 	// // IO 模式初始化
->>>>>>> hotfix/ket_to_work
 	/* LED 端口模式初始化 */
 	LEDInit();
 
@@ -43,15 +38,9 @@ void SysInit()
 	P1MODH &= P15MOD_Mask;
 	P1MODH |= P15MOD_2;
 
-<<<<<<< HEAD
-=======
 	// T2 初始化  7.3728Mhz/2 = 3686400Hz
->>>>>>> hotfix/ket_to_work
 	// 3686400Hz/922 = 4000Hz = 0.25ms timer2 interrupt
-	//定时0.25ms,高八位
-	TH2 = (65536 - 922) / 256;
 	//RCP2H：Timer2 重载/捕获数据的高字节
-	RCP2H = TH2;
 	//定时0.25ms,低八位
 	TL2 = (65536 - 922) % 256;
 	//RCP2L：Timer2 重载/捕获数据的低字节
@@ -85,21 +74,6 @@ void KeyInit()
 {
 	/* key 1 */
 	P3MODH &= P34MOD_Mask;
-<<<<<<< HEAD
-	P3MODH |= P34MOD_2;
-
-	/* key 2 */
-	P3MODL &= P32MOD_Mask;
-	P3MODL |= P32MOD_2;
-
-	/* key 3 */
-	P1MODH &= P17MOD_Mask;
-	P1MODH |= P17MOD_2;
-
-	/* key 4 */
-	P1MODL &= P12MOD_Mask;
-	P1MODL |= P12MOD_2;
-=======
 	P3MODH |= P34MOD_0;
 
 	/* key 2 */
@@ -113,7 +87,6 @@ void KeyInit()
 	/* key 4 */
 	P1MODL &= P12MOD_Mask;
 	P1MODL |= P12MOD_0;
->>>>>>> hotfix/ket_to_work
 }
 
 void SMGInit(void)
