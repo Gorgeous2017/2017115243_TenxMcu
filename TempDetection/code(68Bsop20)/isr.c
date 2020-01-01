@@ -26,7 +26,7 @@ void INT0_int(void) interrupt 0
 void TIMER0_int(void) interrupt 1
 {
 	TF0 = 0; // clear interrupt flag
-		//------------
+			 //------------
 }
 //=============================================================================
 // Function:	void INT1_int(void)
@@ -73,6 +73,11 @@ void TIMER2_int(void) interrupt 5
 {
 	TF2 = 0; // clear interrupt flag
 	b1ms = 1;
+	if (buzzCounter > 0)
+	{
+		F_buzz();
+		buzzCounter--;
+	}
 }
 //=============================================================================
 // Function:	void TIMER3_int(void)

@@ -3,7 +3,7 @@
 #include "typeAlias.h"
 
 #include "buzz.h"
-#include "dig_display.h"
+#include "smg.h"
 #include "display.h"
 #include "init.h"
 #include "isr.h"
