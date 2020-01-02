@@ -15,6 +15,10 @@ void GetKeys()
 	_nop_();
 	_nop_();
 	P1_2 = 1;
+	P_key_1 = 1;
+	P_key_2 = 1;
+	P_key_3 = 1;
+	P_key_4 = 1;
 	_nop_();
 	_nop_();
 	_nop_();

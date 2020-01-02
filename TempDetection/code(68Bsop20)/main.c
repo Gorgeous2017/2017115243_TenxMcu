@@ -17,17 +17,17 @@ void main()
 		//喂狗
 		F_clearWDT();
 		//业务代码
-		// TimeProcess();
-		// TaskSetting();
-		// TaskProcess();
-		// DisplayProcess();
-		SMG_Display(55);
+		TimeProcess();
+		TaskSetting();
+		TaskProcess();
+		DisplayProcess();
 	}
 }
 void TimeProcess()
 {
 	static uint16_t timer5ms = 0;
 	static uint16_t second = 0;
+	static uint16_t num = 0;
 
 	if (b1ms)
 	{
@@ -46,6 +46,15 @@ void TimeProcess()
 	{
 		// 1s 执行一次
 		second = 0;
+		num++;
+	}
+	else
+	{
+		SMGInit();
+		P_led_com = 1;
+		SMG_COM1 = 0;
+		SMG_COM2 = 0;
+		SMG_Display(num % 100);
 	}
 }
 //=============================================================================
@@ -72,7 +81,7 @@ void TaskSetting()
 	}
 
 	if (D_keyValue1 == keyValue[3])
-	{
+	{  
 		//LEDInit();
 		//F_ledNeg(2);
 		led_flag1 = ~led_flag1;
@@ -84,6 +93,9 @@ void TaskSetting()
 //=============================================================================
 void DisplayProcess()
 {
+	P_led_com = 0;
+	SMG_COM1 = 1;
+	SMG_COM2 = 1;
 	//F_ledOn();
 	if (led_flag1)
 	{
