@@ -2,6 +2,10 @@
 #include "includeAll.h"
 //=============================================================================
 
+uint16_t count = 0;
+bit START_FLAG = 0;
+bit DP_FLAG = 0;
+
 void main()
 {
 
@@ -27,7 +31,6 @@ void TimeProcess()
 {
 	static uint16_t timer5ms = 0;
 	static uint16_t second = 0;
-	static uint16_t num = 0;
 
 	if (b1ms)
 	{
@@ -46,7 +49,14 @@ void TimeProcess()
 	{
 		// 1s 执行一次
 		second = 0;
-		num++;
+		if (count > 0 && START_FLAG)
+		{
+			count--;
+		}
+		else if (count == 0 && START_FLAG && DP_FLAG)
+		{
+			BuzzCount(100);
+		}
 	}
 	else
 	{
@@ -54,7 +64,10 @@ void TimeProcess()
 		P_led_com = 1;
 		SMG_COM1 = 0;
 		SMG_COM2 = 0;
-		SMG_Display(num % 100);
+		if (DP_FLAG == 1)
+		{
+			SMG_Display(count);
+		}
 	}
 }
 //=============================================================================
@@ -65,58 +78,78 @@ bit led_flag1 = 0;
 bit led_flag2 = 0;
 void TaskSetting()
 {
+	int i;
 	//KeyInit();
-	if (D_keyValue1 == keyValue[0])
+
+	/* 显示状态 */
+	if (DP_FLAG == 1)
 	{
-		//F_ledNeg(1);
+		/* 控制按键 */
+		if (D_keyValue1 == keyValue[0])
+		{
+			//F_ledNeg(1);
+			led_flag1 = ~led_flag1;
+			count += 10;
+			BuzzCount(100);
+		}
+
+		if (D_keyValue1 == keyValue[1])
+		{
+			//F_ledNeg(1);
+			led_flag1 = ~led_flag1;
+			if (count > 0)
+			{
+				count -= 10;
+			}
+
+			BuzzCount(100);
+		}
+
+		if (D_keyValue1 == keyValue[2])
+		{
+			//LEDInit();
+			//F_ledNeg(1);
+			led_flag2 = ~led_flag2;
+			BuzzCount(100);
+		}
+	}
+	/* 启动按键 */
+	if (D_keyValue1 == keyValue[3])
+	{
+		if ((count != 0))
+		{
+			START_FLAG = ~START_FLAG;
+		}
+
+		if ((count == 0) && (START_FLAG == 0))
+		{
+			DP_FLAG = 1;
+		}
+
+		if ((count == 0) && (DP_FLAG == 0))
+		{
+			START_FLAG = 1;
+		}
+
+		//LEDInit();
+		//F_ledNeg(2);
 		led_flag2 = ~led_flag2;
 		BuzzCount(100);
 	}
 
-	if (D_keyValue1 == keyValue[2])
+	for (i = 0; i < 4; i++)
 	{
-		//LEDInit();
-		//F_ledNeg(1);
-		led_flag2 = ~led_flag2;
+		keyValue[i] = D_keyNull;
 	}
-
-	if (D_keyValue1 == keyValue[3])
-	{  
-		//LEDInit();
-		//F_ledNeg(2);
-		led_flag1 = ~led_flag1;
-	}
-	keyValue[0] = D_keyNull;
-	keyValue[3] = D_keyNull;
-	keyValue[2] = D_keyNull;
 }
 //=============================================================================
 void DisplayProcess()
 {
-	P_led_com = 0;
-	SMG_COM1 = 1;
-	SMG_COM2 = 1;
-	//F_ledOn();
-	if (led_flag1)
-	{
-		F_ledOn(1);
-		//delayMs(1);
-	}
-	else
-	{
-		F_ledOff(1);
-	}
-
-	if (led_flag2)
-	{
-		F_ledOn(2);
-		//delayMs(1);
-	}
-	else
-	{
-		F_ledOff(2);
-	}
+	P_led_com = 0; /* led 使能 */
+	led_flag1 ? (F_ledOn(1)) : (F_ledOff(1));
+	led_flag2 ? (F_ledOn(2)) : (F_ledOff(2));
 }
+
 void delayMs(uint16_t msCount)
 {
 	uint16_t i, j;

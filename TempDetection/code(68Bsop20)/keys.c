@@ -4,9 +4,8 @@
 void GetKeys()
 {
 	static uint8_t tmpKeyValue[4] = {D_keyNull, D_keyNull, D_keyNull, D_keyNull}; //静态局部变量初始化为0，每次执行函数保持上一次的执行时的值
-	KeyInit();
-	P1MODL = 0x8a;
-	P_led_com = 1;
+	KeyInit();																	  /* 设置按键为输入端口*/
+	P_led_com = 1;																  /* led 失能 */
 	delayMs(1);
 	_nop_();
 	_nop_();
@@ -14,8 +13,7 @@ void GetKeys()
 	_nop_();
 	_nop_();
 	_nop_();
-	P1_2 = 1;
-	P_key_1 = 1;
+	P_key_1 = 1; /* SFG置一，数位输入，下同 */
 	P_key_2 = 1;
 	P_key_3 = 1;
 	P_key_4 = 1;
@@ -69,7 +67,6 @@ void GetKeys()
 		tmpKeyValue[3] = D_keyNull;
 	}
 
-	LEDInit();
-	//P1_2 = 0;
-	P_led_com = 0;
+	LEDInit();	 /* 端口置为输出，显示 led */
+	P_led_com = 0; /* led 使能 */
 }
